@@ -22,7 +22,7 @@ const actions = {
       .then(res => {
         commit('setJobs', res.data.jobs)
       })
-  }
+  },
 }
 
 export default {

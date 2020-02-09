@@ -48,19 +48,14 @@
         </form>
       </div>
     </div>
-    <div>
-      <JobsList></JobsList>
-    </div>
   </div>
 </template>
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import JobsList from "./JobsList";
 
   export default {
     name: 'Home',
-    components: {JobsList},
     data: () => ({
       auth: {
         email: '',
