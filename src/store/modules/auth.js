@@ -24,11 +24,18 @@ const mutations = {
 
 const actions = {
   login ({ commit }, formData) {
-    axios.post('/auth/login', formData)
-      .then(res => {
-        window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
-        commit('setToken', res.data.token)
-      })
+    return new Promise((resolve, reject) => {
+      axios.post('/auth/login', formData)
+        .then(res => {
+          window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
+          commit('setToken', res.data.token)
+          resolve(true)
+        })
+        .catch(err => {
+          console.log(err.data.token)
+          reject(false)
+        })
+    })
   },
   logout ({ commit }) {
     window.axios.defaults.headers.common['Authorization'] = ''
