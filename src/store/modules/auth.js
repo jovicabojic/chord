@@ -26,8 +26,8 @@ const actions = {
   login ({ commit }, formData) {
     axios.post('/auth/login', formData)
       .then(res => {
-        window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.auth_token
-        commit('setToken', res.data.auth_token)
+        window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
+        commit('setToken', res.data.token)
       })
   },
   logout ({ commit }) {
