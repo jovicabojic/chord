@@ -7,6 +7,15 @@ const state = {
 const getters = {
   authToken (state) {
     return state.authToken
+  },
+  isAuthenticated() {
+    if(localStorage.getItem('authToken') == (null || undefined) ){
+      console.log('token is not there : ' + localStorage.getItem('authToken'));
+      return false;
+    }
+    else{
+      return true
+    }
   }
 }
 
@@ -24,22 +33,14 @@ const mutations = {
 
 const actions = {
   login ({ commit }, formData) {
-    return new Promise((resolve, reject) => {
       axios.post('/auth/login', formData)
         .then(res => {
           window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
           commit('setToken', res.data.token)
-          resolve(true)
         })
         .catch(err => {
           console.log(err.data.token)
-          reject(false)
         })
-    })
-  },
-  logout ({ commit }) {
-    window.axios.defaults.headers.common['Authorization'] = ''
-    commit('setToken', null)
   },
   userInit ({ commit }) {
     if (localStorage.getItem('authToken')) {

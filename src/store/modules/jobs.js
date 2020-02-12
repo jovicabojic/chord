@@ -18,9 +18,9 @@ const mutations = {
 
 const actions = {
   getJobs ({ commit }) {
-    axios.get('/jobs?order_by&include=client.jobRequest&include=jobType.user')
+    axios.get('/jobs?order_by=start_time&include=client.jobRequest&include=jobType.user')
       .then(res => {
-        commit('setJobs', res.data.jobs)
+        commit('setJobs', res.data.data)
       })
   },
 }

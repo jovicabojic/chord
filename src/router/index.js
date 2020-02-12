@@ -1,5 +1,5 @@
 import Home from '../components/pages/Home'
-import JobsList from '../components/pages/JobsList'
+import Jobs from '../components/pages/Jobs'
 
 export const routes = [
   {
@@ -7,7 +7,7 @@ export const routes = [
     component: Home
   },
   {
-    path: '/jobs-list',
-    component: JobsList
+    path: '/jobs',
+    component: Jobs
   }
 ]

@@ -72,9 +72,7 @@
         'login'
       ]),
       submit () {
-        if(this.authToken) {
-          this.login({...this.auth})
-        }
+        this.login({ ...this.auth })
       }
     }
   }

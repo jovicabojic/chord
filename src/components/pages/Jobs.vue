@@ -5,6 +5,7 @@
         <div v-for="job in jobs"
              :key="job.name"
              class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+          {{job.id}}
         </div>
       </div>
     </template>
@@ -27,7 +28,9 @@
       )
     },
     mounted () {
-      this.getJobs()
+      this.$nextTick(() => {
+        this.getJobs()
+      })
     }
   }
 </script>
