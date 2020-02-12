@@ -18,6 +18,16 @@ window.axios.defaults.baseURL = 'https://dvapi.tempest.app/api/v1'
 
 Vue.config.productionTip = false
 
+axios.interceptors.request.use(function (config) {
+  let token = localStorage.getItem('authToken')
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`
+  }
+  return config;
+}, function (error) {
+  return Promise.reject(error);
+});
+
 const router = new VueRouter({
   routes,
 })

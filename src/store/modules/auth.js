@@ -7,15 +7,6 @@ const state = {
 const getters = {
   authToken (state) {
     return state.authToken
-  },
-  isAuthenticated() {
-    if(localStorage.getItem('authToken') == (null || undefined) ){
-      console.log('token is not there : ' + localStorage.getItem('authToken'));
-      return false;
-    }
-    else{
-      return true
-    }
   }
 }
 
