@@ -24,14 +24,14 @@
             </tbody>
           </table>
         </div>
-        <pagination class="col-sm-6 mb-1" :changePage="changePage"></pagination>
+<!--        <pagination class="col-sm-6 mb-1" :changePage="changePage"></pagination>-->
       </div>
     </template>
   </section>
 </template>
 
 <script>
-  import Pagination from '../common/Pagination'
+  // import Pagination from '../common/Pagination'
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
@@ -59,9 +59,9 @@
         this.getJobs()
       })
     },
-    components: {
-      Pagination
-    }
+    // components: {
+    //   Pagination
+    // }
   }
 </script>
 
